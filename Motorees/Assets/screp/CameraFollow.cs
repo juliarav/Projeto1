@@ -6,6 +6,8 @@ public class CameraFollow : MonoBehaviour
 {
     public Transform alvo;
     public Vector3 offset;
+    public float sensib = 2;
+
     // Start is called before the first frame update
     void Start()
     {
