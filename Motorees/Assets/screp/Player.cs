@@ -5,14 +5,16 @@ using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
-    public int velocidade = 10;
-    public int forcaPulo = 7;
+    public int velocidade = 5;
+    public int forcaPulo = 6;
     private Rigidbody rb;
+    private AudioSource source;
     public bool noChao;
 
     void Start()
     {
        TryGetComponent (out rb);
+       TryGetComponent(out source);
     }
 
     public void OnCollisionEnter(Collision col) {
@@ -29,6 +31,9 @@ public class Player : MonoBehaviour
         
         // pulo
         if (Input.GetKeyDown(KeyCode.Space) && noChao) { // se apertou espaço
+
+            // pulo
+            source.Play();
 
         // aplica força para cima
             rb.AddForce(Vector3.up * forcaPulo, ForceMode.Impulse);
